@@ -542,35 +542,114 @@ section {
 /* ---------- Footer ---------- */
 .site-footer {
   border-top: 1px solid var(--border);
-  padding-block: 2rem;
+  padding-top: clamp(3rem, 6vw, 5rem);
 }
 
-.footer-inner {
+.footer-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.footer-brand {
+  flex: 1 1 280px;
+  max-width: 380px;
+}
+
+.footer-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.footer-tagline {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.footer-social {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.footer-social a {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1rem;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-muted);
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease), transform 0.15s var(--ease);
 }
 
-.footer-inner p {
-  font-size: 0.85rem;
-  color: var(--text-faint);
+.footer-social a:hover {
+  color: var(--primary);
+  border-color: var(--border-hover);
 }
 
-.footer-links {
+.footer-social a:active {
+  transform: scale(0.94);
+}
+
+.footer-social svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  fill: currentColor;
+}
+
+.footer-columns {
   display: flex;
-  gap: 1.5rem;
+  flex: 2 1 480px;
+  flex-wrap: wrap;
+  gap: 2.5rem;
 }
 
-.footer-links a {
-  font-size: 0.85rem;
+.footer-col {
+  flex: 1 1 140px;
+}
+
+.footer-col h3 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
   color: var(--text-faint);
+  margin-bottom: 1.1rem;
+}
+
+.footer-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.footer-col li {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.footer-col a {
+  color: inherit;
   transition: color 0.2s var(--ease);
 }
 
-.footer-links a:hover {
-  color: var(--text-muted);
+.footer-col a:hover {
+  color: var(--primary);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-block: 1.5rem;
+}
+
+.footer-bottom p {
+  font-size: 0.85rem;
+  color: var(--text-faint);
 }
 
 /* ---------- Responsive ---------- */
