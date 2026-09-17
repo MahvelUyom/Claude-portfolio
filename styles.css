@@ -273,25 +273,8 @@ section {
   height: 100%;
 }
 
-.flow-path {
-  animation-name: path-flow;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-}
-
-@keyframes path-flow {
-  0%,
-  100% {
-    opacity: 0.14;
-  }
-  50% {
-    opacity: 0.38;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .flow-path {
-    animation: none;
     opacity: 0.2;
   }
 }

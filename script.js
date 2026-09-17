@@ -38,13 +38,39 @@
       path.setAttribute("stroke", "#2563eb");
       path.setAttribute("stroke-width", String(0.5 + i * 0.03));
       path.setAttribute("stroke-linecap", "round");
+      path.setAttribute("stroke-opacity", String(Math.min(0.12 + i * 0.018, 0.5)));
       path.classList.add("flow-path");
-      path.style.animationDuration = (18 + Math.random() * 12).toFixed(2) + "s";
-      path.style.animationDelay = (Math.random() * -20).toFixed(2) + "s";
       svg.appendChild(path);
     }
 
     host.appendChild(svg);
+
+    var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // Animate a small traveling gap along each path's own measured length using
+    // native SVG SMIL <animate> (CSS keyframes animating toward a custom-property
+    // calc() value don't interpolate reliably per-element here). Most of the stroke
+    // stays lit (large "on" segment) so the line is always visible even though most
+    // of its length sweeps outside the viewBox — only the thin gap circles around,
+    // which reads as a continuous flow instead of a hard blink.
+    Array.prototype.forEach.call(svg.querySelectorAll(".flow-path"), function (p) {
+      var len = p.getTotalLength();
+      if (!len) return;
+      var gap = len * (0.08 + Math.random() * 0.1);
+      p.setAttribute("stroke-dasharray", (len - gap).toFixed(2) + " " + gap.toFixed(2));
+
+      if (reduceMotion) return;
+
+      var dur = (9 + Math.random() * 9).toFixed(2);
+      var animate = document.createElementNS(svgNS, "animate");
+      animate.setAttribute("attributeName", "stroke-dashoffset");
+      animate.setAttribute("from", "0");
+      animate.setAttribute("to", (position < 0 ? len : -len).toFixed(2));
+      animate.setAttribute("dur", dur + "s");
+      animate.setAttribute("begin", (Math.random() * -dur).toFixed(2) + "s");
+      animate.setAttribute("repeatCount", "indefinite");
+      p.appendChild(animate);
+    });
   }
 
   // Hero title letter cascade (replaces gradient-clip-text with a solid-color stagger).
