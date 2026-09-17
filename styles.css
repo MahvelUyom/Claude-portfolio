@@ -274,24 +274,18 @@ section {
 }
 
 .flow-path {
-  stroke-dasharray: 320 320;
   animation-name: path-flow;
-  animation-timing-function: linear;
+  animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
 }
 
 @keyframes path-flow {
-  0% {
-    stroke-dashoffset: 640;
-    opacity: 0.12;
+  0%,
+  100% {
+    opacity: 0.14;
   }
   50% {
-    stroke-dashoffset: 0;
-    opacity: 0.4;
-  }
-  100% {
-    stroke-dashoffset: -640;
-    opacity: 0.12;
+    opacity: 0.38;
   }
 }
 
