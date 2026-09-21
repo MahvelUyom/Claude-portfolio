@@ -24,6 +24,17 @@
     }
   });
 
+  // Testimonials marquee: duplicate each column's cards once so the
+  // translateY(-50%) loop wraps seamlessly, unless motion is reduced.
+  if (!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches)) {
+    Array.prototype.forEach.call(document.querySelectorAll(".testimonials-track"), function (track) {
+      var items = Array.prototype.slice.call(track.children);
+      items.forEach(function (item) {
+        track.appendChild(item.cloneNode(true));
+      });
+    });
+  }
+
   // Hero background paths (generative flowing line art, no images/gradients)
   var pathsHost = document.getElementById("hero-paths");
   if (pathsHost) {
