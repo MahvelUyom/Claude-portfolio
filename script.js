@@ -7,6 +7,23 @@
     yearEl.textContent = new Date().getFullYear();
   }
 
+  // Skeleton loaders for every image on the page: show a pulsing placeholder
+  // until each image has actually decoded, then reveal it.
+  Array.prototype.forEach.call(document.querySelectorAll("img"), function (img) {
+    img.classList.add("img-skeleton");
+
+    function markLoaded() {
+      img.classList.add("is-loaded");
+    }
+
+    if (img.complete && img.naturalWidth > 0) {
+      markLoaded();
+    } else {
+      img.addEventListener("load", markLoaded, { once: true });
+      img.addEventListener("error", markLoaded, { once: true });
+    }
+  });
+
   // Hero background paths (generative flowing line art, no images/gradients)
   var pathsHost = document.getElementById("hero-paths");
   if (pathsHost) {
