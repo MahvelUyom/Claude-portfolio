@@ -606,15 +606,15 @@ section {
   margin: 0;
   padding: 0;
   animation: testimonials-scroll linear infinite;
-  animation-duration: 34s;
+  animation-duration: 33.5s;
 }
 
 .testimonials-col-md .testimonials-track {
-  animation-duration: 42s;
+  animation-duration: 41.5s;
 }
 
 .testimonials-col-lg .testimonials-track {
-  animation-duration: 38s;
+  animation-duration: 37.5s;
 }
 
 .testimonials-columns:hover .testimonials-track {
@@ -647,6 +647,50 @@ section {
 .testimonial-card:hover {
   border-color: var(--border-hover);
   background: var(--bg-elevated);
+}
+
+.testimonial-card--light {
+  background: #f4f4f2;
+  border-color: #f4f4f2;
+}
+
+.testimonial-card--light:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+}
+
+.testimonial-card--light p {
+  color: #52525b;
+}
+
+.testimonial-card--light cite {
+  color: #18181b;
+}
+
+.testimonial-card--light .testimonial-role {
+  color: #71717a;
+}
+
+.testimonial-card--accent {
+  background: #12285c;
+  border-color: #12285c;
+}
+
+.testimonial-card--accent:hover {
+  background: #16327a;
+  border-color: #16327a;
+}
+
+.testimonial-card--accent p {
+  color: #cbd5f5;
+}
+
+.testimonial-card--accent cite {
+  color: #ffffff;
+}
+
+.testimonial-card--accent .testimonial-role {
+  color: #93a9e0;
 }
 
 .testimonial-card blockquote {
