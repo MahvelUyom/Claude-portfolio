@@ -332,6 +332,11 @@ section {
   color: var(--primary);
 }
 
+.hero-title .word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
 .hero-title .letter {
   display: inline-block;
   opacity: 0;

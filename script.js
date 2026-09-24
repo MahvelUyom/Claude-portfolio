@@ -168,17 +168,31 @@
         container.className = "accent";
       }
 
-      segment.text.split("").forEach(function (ch) {
-        if (ch === " ") {
-          container.appendChild(document.createTextNode(" "));
+      // Split into words and the whitespace between them (keeping the
+      // delimiters) so each word's letters share one inline-block wrapper.
+      // Adjacent inline-block letter spans each count as their own
+      // breakable "atomic inline", so without this a line can wrap
+      // mid-word; the wrapper keeps a word's letters glued together while
+      // still allowing wraps at the real spaces between words.
+      segment.text.split(/(\s+)/).forEach(function (token) {
+        if (token === "") {
           return;
         }
-        var span = document.createElement("span");
-        span.className = "letter";
-        span.textContent = ch;
-        span.style.transitionDelay = index * 22 + "ms";
-        index += 1;
-        container.appendChild(span);
+        if (/^\s+$/.test(token)) {
+          container.appendChild(document.createTextNode(token));
+          return;
+        }
+        var word = document.createElement("span");
+        word.className = "word";
+        token.split("").forEach(function (ch) {
+          var span = document.createElement("span");
+          span.className = "letter";
+          span.textContent = ch;
+          span.style.transitionDelay = index * 22 + "ms";
+          index += 1;
+          word.appendChild(span);
+        });
+        container.appendChild(word);
       });
 
       if (segment.accent) {
