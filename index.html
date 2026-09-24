@@ -76,9 +76,9 @@
               My latest build: an AI voice agent that answers and makes calls for businesses around the clock —
               handling bookings, FAQs, and follow-ups so no call goes unanswered, even after hours.
             </p>
-            <a class="whats-new-link" href="#contact">
-              Ask me about it <span aria-hidden="true">→</span>
-            </a>
+            <button type="button" class="whats-new-link" id="demo-open" aria-haspopup="dialog">
+              View a short demo <span aria-hidden="true">→</span>
+            </button>
           </div>
 
           <div class="whats-new-card reveal">
@@ -462,6 +462,18 @@
       <p>© <span id="year"></span> Marvellous Uyom. All rights reserved.</p>
     </div>
   </footer>
+
+  <div class="video-modal" id="demo-modal" role="dialog" aria-modal="true" aria-label="AI calling agent demo" hidden>
+    <div class="video-modal-backdrop" id="demo-backdrop"></div>
+    <div class="video-modal-panel">
+      <button type="button" class="video-modal-close" id="demo-close" aria-label="Close demo">&times;</button>
+      <video id="demo-video" controls playsinline preload="none">
+        <source src="assets/videos/ai-calling-demo.mp4" type="video/mp4" />
+        Your browser doesn't support embedded video.
+        <a href="assets/videos/ai-calling-demo.mp4">Download the demo video</a> instead.
+      </video>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

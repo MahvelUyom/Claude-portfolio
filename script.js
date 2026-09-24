@@ -35,6 +35,49 @@
     });
   }
 
+  // Demo video modal (AI calling agent)
+  var demoOpenBtn = document.getElementById("demo-open");
+  var demoModal = document.getElementById("demo-modal");
+  var demoCloseBtn = document.getElementById("demo-close");
+  var demoBackdrop = document.getElementById("demo-backdrop");
+  var demoVideo = document.getElementById("demo-video");
+
+  if (demoOpenBtn && demoModal && demoVideo) {
+    var demoLastFocused = null;
+
+    function openDemo() {
+      demoLastFocused = document.activeElement;
+      demoModal.hidden = false;
+      document.body.style.overflow = "hidden";
+      if (demoCloseBtn) {
+        demoCloseBtn.focus();
+      }
+      demoVideo.play().catch(function () {});
+    }
+
+    function closeDemo() {
+      demoModal.hidden = true;
+      document.body.style.overflow = "";
+      demoVideo.pause();
+      if (demoLastFocused && demoLastFocused.focus) {
+        demoLastFocused.focus();
+      }
+    }
+
+    demoOpenBtn.addEventListener("click", openDemo);
+    if (demoCloseBtn) {
+      demoCloseBtn.addEventListener("click", closeDemo);
+    }
+    if (demoBackdrop) {
+      demoBackdrop.addEventListener("click", closeDemo);
+    }
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !demoModal.hidden) {
+        closeDemo();
+      }
+    });
+  }
+
   // Hero background paths (generative flowing line art, no images/gradients)
   var pathsHost = document.getElementById("hero-paths");
   if (pathsHost) {
