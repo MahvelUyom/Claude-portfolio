@@ -97,13 +97,13 @@
     var count = 30;
     for (var i = 0; i < count; i++) {
       var d =
-        "M-" + (380 - i * 5 * position) + " -" + (189 + i * 6) +
-        "C-" + (380 - i * 5 * position) + " -" + (189 + i * 6) +
-        " -" + (312 - i * 5 * position) + " " + (216 - i * 6) +
-        " " + (152 - i * 5 * position) + " " + (343 - i * 6) +
-        "C" + (616 - i * 5 * position) + " " + (470 - i * 6) +
-        " " + (684 - i * 5 * position) + " " + (875 - i * 6) +
-        " " + (684 - i * 5 * position) + " " + (875 - i * 6);
+        "M-" + (380 - i * 9 * position) + " -" + (100 + i * 11) +
+        "C-" + (380 - i * 9 * position) + " -" + (100 + i * 11) +
+        " -" + (312 - i * 9 * position) + " " + (127 - i * 11) +
+        " " + (152 - i * 9 * position) + " " + (254 - i * 11) +
+        "C" + (616 - i * 9 * position) + " " + (381 - i * 11) +
+        " " + (684 - i * 9 * position) + " " + (786 - i * 11) +
+        " " + (684 - i * 9 * position) + " " + (786 - i * 11);
 
       var path = document.createElementNS(svgNS, "path");
       path.setAttribute("d", d);
