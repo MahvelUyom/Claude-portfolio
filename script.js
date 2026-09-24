@@ -78,11 +78,12 @@
     });
   }
 
-  // Hero background paths (generative flowing line art, no images/gradients)
+  // Hero background paths (generative flowing line art, no images/gradients).
+  // Only one direction's worth of paths — mirroring in a second set made the
+  // lower-left region a congested tangle where both sweeps crossed.
   var pathsHost = document.getElementById("hero-paths");
   if (pathsHost) {
     buildFloatingPaths(pathsHost, 1);
-    buildFloatingPaths(pathsHost, -1);
   }
 
   function buildFloatingPaths(host, position) {
