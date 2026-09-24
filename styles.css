@@ -16,7 +16,7 @@ html {
   --border-hover: #33333a;
   --text: #f2f2f4;
   --text-muted: #9a9aa3;
-  --text-faint: #6b6b73;
+  --text-faint: #7d7d86;
   --primary: #2563eb;
   --primary-hover: #3b82f6;
   --primary-text: #ffffff;
@@ -79,6 +79,17 @@ h1, h2, h3, p {
 
 .skip-link:focus {
   left: 0;
+}
+
+/* Visible keyboard-focus state for every interactive element (nav links,
+   buttons, cards, icons) — browsers give no default outline worth trusting
+   against this dark background. */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 .container {
