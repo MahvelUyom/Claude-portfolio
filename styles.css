@@ -428,6 +428,19 @@ section {
   margin-bottom: 0.85rem;
 }
 
+.whats-new-title--brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.whats-new-title--brand img {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9px;
+  flex-shrink: 0;
+}
+
 .whats-new-text {
   font-size: 0.94rem;
   color: var(--text-muted);
