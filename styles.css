@@ -385,6 +385,64 @@ section {
   margin-bottom: 3rem;
 }
 
+/* ---------- What's New ---------- */
+.whats-new {
+  padding-block: clamp(2.5rem, 5vw, 4rem);
+}
+
+.whats-new-card {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: clamp(1.75rem, 4vw, 2.75rem);
+  max-width: 720px;
+  margin-inline: auto;
+  text-align: center;
+  background: var(--bg-elevated);
+}
+
+.whats-new-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.whats-new-title {
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 1rem;
+}
+
+.whats-new-text {
+  font-size: 0.98rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  max-width: 56ch;
+  margin: 0 auto 1.5rem;
+}
+
+.whats-new-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary);
+  transition: gap 0.2s var(--ease), color 0.2s var(--ease);
+}
+
+.whats-new-link:hover {
+  gap: 0.6rem;
+  color: var(--primary-hover);
+}
+
 /* ---------- Services ---------- */
 .services {
   border-top: 1px solid var(--border);
@@ -647,50 +705,6 @@ section {
 .testimonial-card:hover {
   border-color: var(--border-hover);
   background: var(--bg-elevated);
-}
-
-.testimonial-card--light {
-  background: #f4f4f2;
-  border-color: #f4f4f2;
-}
-
-.testimonial-card--light:hover {
-  background: #ffffff;
-  border-color: #ffffff;
-}
-
-.testimonial-card--light p {
-  color: #52525b;
-}
-
-.testimonial-card--light cite {
-  color: #18181b;
-}
-
-.testimonial-card--light .testimonial-role {
-  color: #71717a;
-}
-
-.testimonial-card--accent {
-  background: #12285c;
-  border-color: #12285c;
-}
-
-.testimonial-card--accent:hover {
-  background: #16327a;
-  border-color: #16327a;
-}
-
-.testimonial-card--accent p {
-  color: #cbd5f5;
-}
-
-.testimonial-card--accent cite {
-  color: #ffffff;
-}
-
-.testimonial-card--accent .testimonial-role {
-  color: #93a9e0;
 }
 
 .testimonial-card blockquote {
